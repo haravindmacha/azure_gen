@@ -21,11 +21,6 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Clear cached dependencies
-        run: |
-          rm -rf ~/.cache/pip
-          rm -rf venv
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -37,5 +32,10 @@ jobs:
           app-name: my-nlp-api
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: .
+  
+      - name: Clear cached dependencies
+        run: |
+          rm -rf ~/.cache/pip
+          rm -rf venv
 
           
