@@ -1,4 +1,5 @@
 import requests
+import os
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
@@ -85,5 +86,6 @@ def summarize_api():
     summary = summarize_text(text)
     return jsonify({"summary": summary})
 
-if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0", port=5000)  # ✅ Allows external access
+if _name_ == '_main_':
+    port = int(os.environ.get("PORT", 8000))  # Use Azure's assigned port, fallback to 5000 for local testing
+    app.run(debug=True, host="0.0.0.0", port=port)
