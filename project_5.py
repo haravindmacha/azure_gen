@@ -102,6 +102,6 @@ def summarize_api():
     })
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 443))  # Use Azure's assigned port, fallback to 5000 for local testing
+    port = int(os.environ.get("PORT", 8000))  # Use Azure's assigned port, fallback to 5000 for local testing
     app.run(debug=True, host="0.0.0.0", port=port)
 
